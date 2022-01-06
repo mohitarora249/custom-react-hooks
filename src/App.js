@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import useComponentDidMount from "./hooks/useComponentDidMount";
+import useComponentWillUnmount from "./hooks/useComponentWillUnmount";
+import useGetDataFromLocalStorageOnComponentDidMount from "./hooks/useGetDataFromLocalStorageOnComponentDidMount";
+import useRemoveEventListenerOnComponentUnmount from "./hooks/useRemoveEventListenerOnComponentUnmount";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const getDataFromApi = () => {
+    console.log("getDataFromApi");
+    localStorage.setItem("displayName", "Dummy Name");
+    window.addEventListener("click", () => {
+      console.log("MOUSE CLICKED");
+    });
+  };
+
+  const performCleanupActivity = () => {
+    console.log("performCleanupActivity");
+  };
+
+  const setNameFromLocalStorage = (val) => {
+    console.log("Name :: ", val);
+  };
+
+  useComponentDidMount(getDataFromApi);
+  useComponentWillUnmount(performCleanupActivity);
+
+  useGetDataFromLocalStorageOnComponentDidMount(
+    "displayName",
+    setNameFromLocalStorage
   );
+
+  useRemoveEventListenerOnComponentUnmount("click");
+  return <div className="App"></div>;
 }
 
 export default App;
