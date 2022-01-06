@@ -4,6 +4,7 @@ import useComponentDidMount from "./hooks/useComponentDidMount";
 import useComponentWillUnmount from "./hooks/useComponentWillUnmount";
 import useGetDataFromLocalStorageOnComponentDidMount from "./hooks/useGetDataFromLocalStorageOnComponentDidMount";
 import useRemoveEventListenerOnComponentUnmount from "./hooks/useRemoveEventListenerOnComponentUnmount";
+import useVisibilityApi from "./hooks/useVisibilityApi";
 
 function App() {
   const getDataFromApi = () => {
@@ -33,6 +34,9 @@ function App() {
   );
 
   useRemoveEventListenerOnComponentUnmount("click", clickEventHdlr);
+
+  const status = useVisibilityApi();
+  console.log("SATUS :: ", status);
   return <div className="App"></div>;
 }
 
