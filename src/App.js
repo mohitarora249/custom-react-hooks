@@ -9,9 +9,11 @@ function App() {
   const getDataFromApi = () => {
     console.log("getDataFromApi");
     localStorage.setItem("displayName", "Dummy Name");
-    window.addEventListener("click", () => {
-      console.log("MOUSE CLICKED");
-    });
+    window.addEventListener("click", clickEventHdlr);
+  };
+
+  const clickEventHdlr = () => {
+    console.log("MOUSE CLICKED");
   };
 
   const performCleanupActivity = () => {
@@ -30,7 +32,7 @@ function App() {
     setNameFromLocalStorage
   );
 
-  useRemoveEventListenerOnComponentUnmount("click");
+  useRemoveEventListenerOnComponentUnmount("click", clickEventHdlr);
   return <div className="App"></div>;
 }
 
