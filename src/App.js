@@ -6,6 +6,7 @@ import useGetDataFromLocalStorageOnComponentDidMount from "./hooks/useGetDataFro
 import useRemoveEventListenerOnComponentUnmount from "./hooks/useRemoveEventListenerOnComponentUnmount";
 import usePageVisibilityApi from "./hooks/usePageVisibilityApi";
 import useGeoLocationApi from "./hooks/useGeoLocationApi";
+import useScreenOrientationApi from "./hooks/useScreenOrientationApi";
 
 function App() {
   const getDataFromApi = () => {
@@ -41,6 +42,8 @@ function App() {
 
   const location = useGeoLocationApi();
   console.log("location ::", location);
+  const orientation = useScreenOrientationApi();
+  console.log("orientation ::", orientation);
   return <div className="App">Check Console</div>;
 }
 
