@@ -5,6 +5,7 @@ import useComponentWillUnmount from "./hooks/useComponentWillUnmount";
 import useGetDataFromLocalStorageOnComponentDidMount from "./hooks/useGetDataFromLocalStorageOnComponentDidMount";
 import useRemoveEventListenerOnComponentUnmount from "./hooks/useRemoveEventListenerOnComponentUnmount";
 import useVisibilityApi from "./hooks/useVisibilityApi";
+import useGeoLocationApi from "./hooks/useGeoLocationApi";
 
 function App() {
   const getDataFromApi = () => {
@@ -37,7 +38,10 @@ function App() {
 
   const status = useVisibilityApi();
   console.log("SATUS :: ", status);
-  return <div className="App"></div>;
+
+  const location = useGeoLocationApi();
+  console.log("location ::", location);
+  return <div className="App">Check Console</div>;
 }
 
 export default App;
