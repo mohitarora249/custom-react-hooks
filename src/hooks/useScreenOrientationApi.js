@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// window.screen.orientation is experimental feature
 const useScreenOrientationApi = () => {
   const [state, setState] = useState({
     orientation: null,

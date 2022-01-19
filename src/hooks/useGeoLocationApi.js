@@ -6,12 +6,12 @@ const useGeoLocationApi = () => {
     error: null,
   });
 
-  const onSuccess = ({ coords }) => {
+  const onSuccess = ({ coords: { latitude, longitude } }) => {
     setState({
       ...state,
       location: {
-        latitude: coords.latitude,
-        longitude: coords.longitude,
+        latitude,
+        longitude,
       },
     });
   };
