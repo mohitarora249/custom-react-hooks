@@ -4,7 +4,7 @@ import useComponentDidMount from "./hooks/useComponentDidMount";
 import useComponentWillUnmount from "./hooks/useComponentWillUnmount";
 import useGetDataFromLocalStorageOnComponentDidMount from "./hooks/useGetDataFromLocalStorageOnComponentDidMount";
 import useRemoveEventListenerOnComponentUnmount from "./hooks/useRemoveEventListenerOnComponentUnmount";
-import useVisibilityApi from "./hooks/useVisibilityApi";
+import usePageVisibilityApi from "./hooks/usePageVisibilityApi";
 import useGeoLocationApi from "./hooks/useGeoLocationApi";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
 
   useRemoveEventListenerOnComponentUnmount("click", clickEventHdlr);
 
-  const status = useVisibilityApi();
+  const status = usePageVisibilityApi();
   console.log("SATUS :: ", status);
 
   const location = useGeoLocationApi();

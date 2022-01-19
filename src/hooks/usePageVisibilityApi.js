@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useVisibilityApi = () => {
+const usePageVisibilityApi = () => {
   const [state, setState] = useState({
     hidden: document.hidden,
     visibilityState: document.visibilityState,
@@ -27,4 +27,4 @@ const useVisibilityApi = () => {
   return state;
 };
 
-export default useVisibilityApi;
+export default usePageVisibilityApi;
